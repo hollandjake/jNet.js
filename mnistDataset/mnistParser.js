@@ -33,13 +33,13 @@ class MNIST{
 
 		//Grab datasets
 		let self = this;
-		self.getBinary("/libraries/jNet/mnistDataset/train-labels",function(data){
+		self.getBinary("http://rawgit.com/hollandjake/jNet.js/master/mnistDataset/train-labels",function(data){
 			let labels = data;
 			if (labels.length < trainingExamples){
 				console.error("Not enough entries in the training datset");
 			}
 			let trainingData = new Array(labels.length);
-			self.getBinary("/libraries/jNet/mnistDataset/train-images",function(data){
+			self.getBinary("http://rawgit.com/hollandjake/jNet.js/master/mnistDataset/train-images",function(data){
 				for (let i = 0;i<labels.length;i++){
 					trainingData[i] = {
 						"idNumeric": labels[i],
@@ -49,13 +49,13 @@ class MNIST{
 				}
 				self.trainingData = MNIST.shuffle(trainingData).slice(0,trainingExamples);
 
-				self.getBinary("/libraries/jNet/mnistDataset/test-labels",function(data){
+				self.getBinary("http://rawgit.com/hollandjake/jNet.js/master/mnistDataset/test-labels",function(data){
 					let labels = data;
 					if (labels.length < testExamples){
 						console.error("Not enough entries in the test datset");
 					}
 					let testData = new Array(labels.length);
-					self.getBinary("/libraries/jNet/mnistDataset/test-images",function(data){
+					self.getBinary("http://rawgit.com/hollandjake/jNet.js/master/mnistDataset/test-images",function(data){
 						for (let i = 0;i<labels.length;i++){
 							testData[i] = {
 								"idNumeric": labels[i],
