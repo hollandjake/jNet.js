@@ -49,13 +49,13 @@ class MNIST{
 				}
 				self.trainingData = MNIST.shuffle(trainingData).slice(0,trainingExamples);
 
-				self.getBinary("http://rawgit.com/hollandjake/jNet.js/master/mnistDataset/test-labels",function(data){
+				self.getBinary("https://rawgit.com/hollandjake/jNet.js/master/mnistDataset/test-labels",function(data){
 					let labels = data;
 					if (labels.length < testExamples){
 						console.error("Not enough entries in the test datset");
 					}
 					let testData = new Array(labels.length);
-					self.getBinary("http://rawgit.com/hollandjake/jNet.js/master/mnistDataset/test-images",function(data){
+					self.getBinary("https://rawgit.com/hollandjake/jNet.js/master/mnistDataset/test-images",function(data){
 						for (let i = 0;i<labels.length;i++){
 							testData[i] = {
 								"idNumeric": labels[i],
