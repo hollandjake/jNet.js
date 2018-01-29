@@ -33,13 +33,13 @@ class MNIST{
 
 		//Grab datasets
 		let self = this;
-		self.getBinary("http://rawgit.com/hollandjake/jNet.js/master/mnistDataset/train-labels",function(data){
+		self.getBinary("https://rawgit.com/hollandjake/jNet.js/master/mnistDataset/train-labels",function(data){
 			let labels = data;
 			if (labels.length < trainingExamples){
 				console.error("Not enough entries in the training datset");
 			}
 			let trainingData = new Array(labels.length);
-			self.getBinary("http://rawgit.com/hollandjake/jNet.js/master/mnistDataset/train-images",function(data){
+			self.getBinary("https://rawgit.com/hollandjake/jNet.js/master/mnistDataset/train-images",function(data){
 				for (let i = 0;i<labels.length;i++){
 					trainingData[i] = {
 						"idNumeric": labels[i],
